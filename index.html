@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<title>Agarplus</title>
+
+	<meta name="Description" content="This is the best Agar.io Private server experience you can have.">
+	<meta name="Keywords" content="Agar.io Private Servers, Agarplus.io, Agar.io Minimap, Agar.io Chat, Agar.io Skins">
+	<meta name="robots" content="index, nofollow">	
+</head>
+<body>
+	<div id="overlays">
+		<div id="helloContainer">
+			<div class="side-container left-side">
+				<div class="agario-panel agario-side-panel agarioProfilePanel level">
+					<div id="profile-main">
+						<div id="profile-pic" class="form-group clearfix">
+							<div class="nav2 arrow-left"></div>
+							<div id="preview-img-area"><img id="preview-img" onerror="setImageDefault();"></div>
+							<div class="nav2 arrow-right"></div>
+						</div>
+					</div>
+					<div id="privateServer">
+						<input type="text" id="privateServerIP" class="form-control" placeholder="ws://" />
+						<button id="joinServer" class="btn btn-success" onclick="joinCurrentServer($('#privateServerIP').val())">Join</button>
+					</div>
+				</div>
+			</div>
+			<div id="mainPanel" class="agario-panel">
+				<form role="form">
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+						</li>
+						<li role="presentation">
+							<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a>
+						</li>
+						<li role="presentation">
+							<a href="#theming" aria-controls="theming" role="tab" data-toggle="tab">Theming</a>
+						</li>
+						<li role="presentation">
+							<a href="#hotkeys" aria-controls="hotkeys" data-toggle="modal" data-target="#hotkeys_setting">Hotkeys</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="home">
+							<div id="teamNameContainer" class="input-group">
+								<input type="text" id="team_name" class="form-control" placeholder="Team" maxlength="10">
+							</div>
+							<div id="nickContainer">
+								<input id="nick" type="text" class="form-control" placeholder="Nick" maxlength="15" autofocus="">
+							</div>
+							<input type="text" id="skin_url" class="form-control" placeholder="Skin URL">
+							<button id="btnPlay" type="submit" onclick="setNick(document.getElementById(\'nick\').value); return false" class="btn btn-play-guest btn-success btn-needs-server">Play <span class="material-icons">play_arrow </span></button>
+							<button id="btnSpectate" onclick="return spectate(),!1" class="btn btn-warning btn-spectate btn-needs-server"><span class="material-icons">remove_red_eye</span></button>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="settings">
+							<div class="zoomSpeed"></div>
+							<div class="container">
+								<div class="settingsRow">
+									<div class="col-xs-6 firstSettings"></div>
+									<div class="col-xs-6 secondSettings"></div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="theming">
+							<div class="form-group">
+								<label>Background Color</label>
+								<input type="text" id="backgroundColor" class="minicolors form-control">
+							</div>
+							<div class="form-group">
+								<label>Border Color</label>
+								<input type="text" id="borderColor" class="minicolors form-control">
+							</div>
+							<div class="form-group" id="pelletColorGroup">
+								<label>Pellet Color</label>
+								<input type="text" id="pelletColor" class="minicolors form-control">
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="hotkeys">...</div>
+					</div>
+				</form>
+			</div>
+			<div class="side-container">
+				<div class="agario-panel agario-side-panel">
+					<div id="game_info">
+						<p id="ip_info"></p>
+						<p id="player_count"></p>
+						<p id="region_info"></p>
+						<p id="gamemode_info"></p>
+						<p id="lb_info"></p>
+						<button id="btn_copy_gameinfo" class="btn btn-success" type="button">Copy</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<canvas id="canvas"></canvas>
+	<div id="overlays2">
+		<div id="div_score"></div>
+		<div id="div_lb">
+			<div class="header">Agarplus</div>
+			<div id="lb_detail"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+	<script type="text/javascript" src="js/core.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
